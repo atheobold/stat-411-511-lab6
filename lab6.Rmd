@@ -61,6 +61,7 @@ Run the line of code you added. Now re-run the code chunk above.
 __3. What error do you get now? Why are you getting this error?__ 
 
 
+
 </br> 
 
 Add what you believe will fix this error to the `R` code chunk at the beginning 
@@ -74,21 +75,23 @@ __Bonus:__ If I load my dataset into `R` using the "Import Dataset" button, what
 will happen when I knit?
 
 
+
 </br>
 
 __4. What error do you get now? Why are you getting this error?__ 
+
 
 
 </br> 
 
 # Finding Help  
 
-It seems that the code is using a function we have not explored before. It 
+It seems that this code is using a function we have not explored before. It 
 would be great if we could look up what this function is doing!  
 
 One of the chief reasons for `R`'s religious following is its wonderful 
 documentation. If you know a function does what you want (say find the 
-variance),but are not quite sure how it's spelled, what arguments it takes, or 
+variance), but are not quite sure how it's spelled, what arguments it takes, or 
 what package it lives in, don't fret! The `?` and `help()` commands are very 
 powerful. For functions, placing the `?` before the name, will tell `R` to 
 search for that name in all of the functions, in all of the packages you have 
@@ -185,5 +188,34 @@ __Use no more than 3 sentences!__
 
 
 
-__11. Make sure that your lab report knits! Use the spell check and knit again!__ 
+__When you are finished, make sure that your lab report knits!__ 
+__Use the spell check and knit again!__ 
+
+
+
+# Lab Take-Aways 
+
+When you are creating an `R` script or an RMarkdown file you should **always**:  
+
+__First__ 
+* Load in the packages you will be using  
+
+* Load in your data using a script **not** the "Import Dataset" button  
+
+
+__Next__ 
+* Create objects **before** you use them -- this means the code creating the 
+variable needs to come **before** the code using the variable!  
+
+* Download any new packages **before** you load them -- only download them once, 
+your `R` code **should not** have any `install.packages()` lines in it! 
+
+* Make sure the function you are using accomplishes the task at hand -- if you 
+aren't sure, use the help file! 
+
+* Be certain what data type each argument is expecting -- if you aren't sure, 
+use the help file!  
+
+* Be certain what the arguments are to the function(s) you are using **and** 
+their order -- if you aren't sure, use the help file! 
 
