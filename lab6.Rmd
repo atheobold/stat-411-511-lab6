@@ -1,0 +1,189 @@
+---
+title: "Lab 6 - Finding Help"
+author: "Your Group Members' Names"
+date: "Due: October 8 by 5pm"
+output: html_document
+---
+
+```{r}
+
+```
+
+
+Let's revisit the data from Lab 4 on the rate of deaths by age/gender 
+(per 100,000 population) for people killed in crashes involving a driver 
+with BAC =>0.08%, for years 2012 and 2014.  
+
+# Difference in Means or the Mean of the Differences? 
+
+In Lab 4 we considered the difference in fatality rate for every state in 2012 
+verses 2014. To compare these rates, we used a difference in means. However, 
+we could (should) have used the mean of the differences.   
+
+__1. Why could we analyze these data as paired?__  
+
+
+</br>
+</br>
+
+# Data Cleaning 
+
+To analyze these data as paired, we need to carry out the following steps:  
+
+* grab the columns we were interested in   
+* create a new variable that is the difference between 2012 and 2014 fatality rates  
+* filter out any missing values for these differences  
+
+The code below attempts to carry out this procedure. 
+
+```{r}
+
+drunk_diff <- drunk %>% 
+  filter(`All Ages, 2012`, `All Ages, 2014`, State) %>%  
+  mutate_at(diff, `All Ages, 2012` - `All Ages, 2014`) %>% 
+  filter(is.na(diff) == FALSE)
+  
+```  
+
+
+__2. What error do you get when you run this code chunk? Why are you getting this error?__ 
+
+
+
+</br> 
+
+Add what you believe will fix this error to the `R` code chunk at the beginning 
+(top) of the Markdown file.  
+
+Run the line of code you added. Now re-run the code chunk above. 
+
+
+__3. What error do you get now? Why are you getting this error?__ 
+
+
+</br> 
+
+Add what you believe will fix this error to the `R` code chunk at the beginning 
+(top) of the Markdown file.  
+
+Run the line of code you added. Now re-run the code chunk above. 
+
+</br>
+
+__Bonus:__ If I load my dataset into `R` using the "Import Dataset" button, what
+will happen when I knit?
+
+
+</br>
+
+__4. What error do you get now? Why are you getting this error?__ 
+
+
+</br> 
+
+# Finding Help  
+
+It seems that the code is using a function we have not explored before. It 
+would be great if we could look up what this function is doing!  
+
+One of the chief reasons for `R`'s religious following is its wonderful 
+documentation. If you know a function does what you want (say find the 
+variance),but are not quite sure how it's spelled, what arguments it takes, or 
+what package it lives in, don't fret! The `?` and `help()` commands are very 
+powerful. For functions, placing the `?` before the name, will tell `R` to 
+search for that name in all of the functions, in all of the packages you have 
+installed.  
+
+* If it finds _one_ __identical match__, it will display the help file for that 
+function in the Help tab in the bottom-right corner.  
+* If it finds _more than one_ __identical match__, it will display the functions,
+in their respective packages, that you have to choose from.  
+* If it find _no_ __identical match__, it will tell you that "`No documentation 
+for ____ in specified packages and libraries:,`" and suggests you use a `??` 
+instead.  
+    
+    + A `??` in front of the function name will search __all of `R`__ for named 
+    functions similar to what you typed.  
+    + The output will tell you what package the function is in, as well as the 
+    function's name (`package::function`).  
+
+
+__5. Find the help file for the `mutate_at()` function.__ 
+__What package is this function from? What function is it a variant of?__ 
+
+
+
+</br> 
+
+
+The help page for functions is broken down into sections:  
+
+* Description: An extended description of what the function does.   
+* Usage: The arguments of the function and their default values.     
+* Arguments: An explanation of the object each argument is expecting.  
+* Details: Any important details to be aware of.    
+* Value: The object the function returns.      
+* See Also: Any related functions that may be useful.    
+* Examples: Some examples for how to use the function.
+
+## Function Arguments  
+
+Arguments describe the details of what a function is to do. Some functions take 
+arguments that are specified by the user, or, if left undeclared, take on 
+default values. Arguments are sometimes given names (as seen in the help
+file), but the arguments are assumed to follow the order the function 
+expects if they are not named (also stated in the help file). When naming an 
+argument, the name of the argument is followed by an `=` sign and then the value
+of the argument. Notice that here we are using the `=` to declare what value 
+each argument is taking on, we **are not** creating a new variable with that 
+value assigned to it.   
+
+
+__6. What are the first three arguments to the `mutate_at()` function?__  
+__Do these arguments have names?__  
+__What data type does each of these arguments take?__ 
+
+
+
+</br> 
+
+It seems like this is not quite the function we are looking for. We wish to 
+create a new variable named `diff` that contains the difference in fatality 
+rates between 2014 and 2012.  
+
+
+__7. What function do you think would best tackle this problem?__  
+__Find that function's help page and list:__ 
+
+
+* The function's arguments:   
+
+
+
+* The output of the function (i.e. what type of object gets returned):  
+
+
+
+</br>
+
+# Put It All Together  
+
+__8. Based on your explorations, modify the code above to create the `drunk_diff` dataset.__ 
+<!-- Change the code in the earlier code chunk, DO NOT make a new code chunk!  -->
+
+
+
+__9. Create a plot of the differences in fatality rates between 2012 and 2014.__ 
+__Make sure you axis have nice labels!__  
+
+
+
+
+__10. Interpret what you see in the plot of the differences in fatality rates.__ 
+__Use no more than 3 sentences!__ 
+
+
+
+
+__11. Make sure that your lab report knits! Use the spell check and knit again!__ 
+
